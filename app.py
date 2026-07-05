@@ -19,3 +19,24 @@ if uploaded_file is not None:
 
     st.subheader("Extracted Resume Text")
     st.write(text)
+    skills = [
+    "Python", "Java", "C", "C++", "SQL",
+    "HTML", "CSS", "JavaScript",
+    "Machine Learning", "Git", "GitHub",
+    "Excel", "Streamlit"
+]
+
+found_skills = []
+
+for skill in skills:
+    if skill.lower() in text.lower():
+        found_skills.append(skill)
+
+
+st.subheader("Skills Found")
+
+if found_skills:
+    for skill in found_skills:
+        st.write("✅", skill)
+else:
+    st.write("No matching skills found.")
