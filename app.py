@@ -40,3 +40,23 @@ if found_skills:
         st.write("✅", skill)
 else:
     st.write("No matching skills found.")
+    st.subheader("ATS Score")
+
+total_skills = len(skills)
+score = (len(found_skills) / total_skills) * 100
+
+st.progress(int(score))
+st.write(f"Your ATS Score: {score:.0f}/100")
+missing_skills = []
+
+for skill in skills:
+    if skill not in found_skills:
+        missing_skills.append(skill)
+
+st.subheader("Skills to Learn")
+
+if missing_skills:
+    for skill in missing_skills:
+        st.write("❌", skill)
+else:
+    st.write("Excellent! No missing skills.")
